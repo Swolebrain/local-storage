@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Learning to use localStorage</title>
+    <script>
+        var ctr = 0;
+        function saveValue(){
+            var box = document.getElementById("txt-box1");
+            var val = box.value;
+            localStorage.setItem("user-input"+ctr, val);
+            writeToP("user-input"+ctr, val);
+            ctr++;
+        }
+        function writeToP(a,b){
+            var p = document.getElementById("saved-values");
+            /*for (var st in localStorage){
+                p.innerHTML += st + ": " + localStorage.getItem(st) +"<br>";
+            }*/
+            p.innerHTML = p.innerHTML + a + ": " + b + "<br>";
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt-box1">
+    <button onclick="saveValue();">Save!</button>
+    <p id="saved-values"></p>
+</body>
+</html>
